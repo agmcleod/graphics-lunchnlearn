@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Graphics Programming</title>
+    <style type="text/css">
+      #canvas {
+        margin: 0 auto;
+      }
+    </style>
+    <script type="shader/vertex" id="vert">
+      attribute vec3 a_position;
+      attribute vec3 a_color;
+      varying vec4 color;
+      void main() {
+        gl_Position = vec4(a_position, 1);
+        color = vec4(a_color, 1);
+      }
+    </script>
+    <script type="shader/fragment" id="frag">
+      precision mediump float;
+      varying vec4 color;
+      void main() {
+        gl_FragColor = color;
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script src="canvas.js"></script>
+  </body>
+</html>
